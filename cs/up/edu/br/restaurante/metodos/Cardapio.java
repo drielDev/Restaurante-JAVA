@@ -11,9 +11,19 @@ public class Cardapio {
             System.out.println("[1]Editar Entradas");
             System.out.println("[2]Editar pratos principais");
             System.out.println("[3]Editar sobremesas");
+            System.out.println("[4]Listar todo o cardapio");
             System.out.println("[0]Voltar");
             System.out.print("Opcao: ");
             opcao = scanner.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    Principal_entrada.EditarEntrada();
+                    break;
+            
+                default:
+                    break;
+            }
         } while (opcao == 0);
     }
 }
