@@ -1,17 +1,12 @@
 package cs.up.edu.br.restaurante.principal;
-
 import java.util.Scanner;
 
-import cs.up.edu.br.restaurante.classes.Comida;
-import cs.up.edu.br.restaurante.classes.Entrada;
-import cs.up.edu.br.restaurante.metodos.Cardapio;
 
-
+import cs.up.edu.br.restaurante.menus.Cardapio;
 
 public class Index {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Comida entrada = new Entrada("pao", 2.0);
         int opcao = -1;
 
         do {

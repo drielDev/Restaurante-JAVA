@@ -1,6 +1,5 @@
 package cs.up.edu.br.restaurante.classes;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -42,7 +41,6 @@ public class Entrada extends Comida{
         System.out.print("Informe o preco: ");
         Double preco = scanner.nextDouble();
         
-        
         Entrada novaEntrada = new Entrada();
         novaEntrada.setNome(nome);
         novaEntrada.setPreco(preco);
@@ -71,19 +69,15 @@ public class Entrada extends Comida{
         } else {
             System.out.println("entrada Excluida com sucesso!");
         }
-        
     }
 
     public static void ListarEntrada(List<Entrada> entradas){
-        
         if (!entradas.isEmpty()) {
             for (Entrada entrada : entradas) {
-            System.out.println(entrada);
+                System.out.println(entrada);
             }
         } else {
             System.out.println("cardapio de entradas esta vazio!");
         }
-        
-        
     }
 }
