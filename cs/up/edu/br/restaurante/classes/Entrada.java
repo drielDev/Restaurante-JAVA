@@ -1,5 +1,6 @@
 package cs.up.edu.br.restaurante.classes;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -73,11 +74,14 @@ public class Entrada extends Comida{
 
     public static void ListarEntrada(List<Entrada> entradas){
         if (!entradas.isEmpty()) {
+            // Ordena a lista de entradas em ordem alfabética
+            Collections.sort(entradas, (e1, e2) -> e1.getNome().compareTo(e2.getNome()));
+            
             for (Entrada entrada : entradas) {
                 System.out.println(entrada);
             }
         } else {
-            System.out.println("cardapio de entradas esta vazio!");
+            System.out.println("cardapio de entradas está vazio!");
         }
     }
 }
