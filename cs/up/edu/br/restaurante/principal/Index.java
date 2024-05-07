@@ -10,8 +10,6 @@ import cs.up.edu.br.restaurante.menus.pedido.Principal_pedido;
 public class Index {
 
     
-    
-    
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);

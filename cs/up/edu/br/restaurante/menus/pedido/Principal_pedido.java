@@ -34,26 +34,19 @@ public class Principal_pedido {
             sobremesas.add(new Sobremesa("pudim", 10.50));
         }
             
-        clientes.add(new Cliente("adriel"));
-        clientes.add(new Cliente("dri"));
-
-        Cliente adriel = clientes.get(0);
-        Prato_principal lasanha = principais.get(0);
-        Sobremesa sorvete = sobremesas.get(0);
-
-        pedidos.add(new Pedido(adriel, 123, null, lasanha, sorvete, 25.50));
-
+        
         Scanner scanner = new Scanner(System.in);
             int opcao = -1;
 
             do {
+                System.out.println("-----------------------------------");
                 System.out.println("[1]Adicionar pedido");
                 System.out.println("[2]Remover pedido");
                 System.out.println("[3]Listar pedidos");
-                System.out.println("[4]Listagem de cardapio");
                 System.out.println("[5]Voltar");
                 System.out.print("Opcao: ");
                 opcao = scanner.nextInt();
+                System.out.println("-----------------------------------");
 
                 switch (opcao) {
                     case 1:
@@ -66,9 +59,6 @@ public class Principal_pedido {
                         Pedido.ListarPedido(pedidos);
                         break;
                     case 4:
-                        
-                        break;
-                    case 5:
                         Index.main(null);
                         break;
                     default:

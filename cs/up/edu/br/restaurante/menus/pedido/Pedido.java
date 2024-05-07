@@ -109,6 +109,7 @@ public class Pedido {
 
         System.out.print("informe o prato de entrada (digite 'nao' caso nao queira): ");
         String entradaUsuario = scanner.next();
+        System.out.println();
         Entrada entrada = null;
         int encontrou = 0;
 
@@ -132,24 +133,32 @@ public class Pedido {
                 encontrou = 1;
             }
             else if (encontrou == 0) {
+                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 System.out.println("Entrada nao encontrada no cardapio!");
+                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             } else {
+                System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
                 System.out.println("Entrada selecionada: " + entrada.getNome());
+                System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
                 entradaUsuario = "nao";
             }
             if (entrada == null) {
-                
+                System.out.println();
                 System.out.print("Informe o prato de entrada (digite 'nao' caso nao queira): ");
                 entradaUsuario = scanner.next();
+                System.out.println();
             }
         }
         
         if (entrada == null) {
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             System.out.println("Nenhuma entrada selecionada.");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         }
-        
+        System.out.println();
         System.out.print("informe o prato principal (digite 'nao' caso nao queira): ");
         String principalUsuario = scanner.next();
+        System.out.println();
         Prato_principal principal = null;
 
         encontrou = 0;
@@ -172,24 +181,33 @@ public class Pedido {
                 encontrou = 1;
             }
             else if (encontrou == 0) {
+                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 System.out.println("Prato principal nao encontrado no cardapio!");
+                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             } else {
+                System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++");
                 System.out.println("Prato principal selecionado: " + principal.getNome());
+                System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++");
                 principalUsuario = "nao";
             }
             if (principal == null) {
-                
+                System.out.println();
                 System.out.print("Informe o prato principal (digite 'nao' caso nao queira): ");
                 principalUsuario = scanner.next();
+                System.out.println();
             }
         }
         
         if (principal == null) {
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             System.out.println("Nenhum prato principal selecionado.");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         }
-
+        
+        System.out.println();
         System.out.print("informe a sobremesa (digite 'nao' caso nao queira): ");
         String sobremesaUsuario = scanner.next();
+        System.out.println();
         Sobremesa sobremesa = null;
 
         encontrou = 0;
@@ -210,31 +228,40 @@ public class Pedido {
             }   
         
             if (encontrou == 0) {
+                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 System.out.println("Sobremesa nao encontrada no cardapio!");
+                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             } else {
+                System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
                 System.out.println("Sobremesa selecionada: " + sobremesa.getNome());
+                System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
                 sobremesaUsuario = "nao";
             }
             if (sobremesa == null) {
-                
+                System.out.println();
                 System.out.print("Informe a sobremesa (digite 'nao' caso nao queira): ");
                 sobremesaUsuario = scanner.next();
+                System.out.println();
             }
         }
         
         if (sobremesa == null) {
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             System.out.println("Nenhuma sobremesa selecionada.");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             
         }
 
-        
-        System.out.println("________PEDIDO________ ");
+        System.out.println();
+        System.out.println("_____________PEDIDO_____________ ");
         System.out.println("Nome: " + nome);
         System.out.println("Mesa: " + mesa);
         System.out.println("Entrada: " + entrada);
         System.out.println("Prato principal: " + principal);
         System.out.println("Sobremesa: " + sobremesa);
         System.out.println("Valor total a ser pago: " + valorTotal + "$ reais");
+        System.out.println("_____________PEDIDO_____________ ");
+        System.out.println();
 
 
         pedidos.add(new Pedido(cliente, mesa, entrada, principal, sobremesa, valorTotal));
