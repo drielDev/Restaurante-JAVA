@@ -274,7 +274,6 @@ public class Pedido {
     public static void ListarPedido(List<Pedido> pedidos){
         
         if (!pedidos.isEmpty()) {
-            // Ordena a lista de entradas em ordem alfabética
             Collections.sort(pedidos, (e1, e2) -> e1.getCliente().compareTo(e2.getCliente()));
             
             for (Pedido pedido : pedidos) {
