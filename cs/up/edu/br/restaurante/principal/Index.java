@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import cs.up.edu.br.restaurante.menus.cardapio.Cardapio;
+import cs.up.edu.br.restaurante.menus.pedido.Principal_pedido;
 
 
 public class Index {
@@ -28,7 +29,9 @@ public class Index {
                 case 1:
                        Cardapio.CardapioMenu();
                     break;
-            
+                case 2:
+                        Principal_pedido.PedidoMenu();
+                    break;
                 default:
                     break;
             }

@@ -22,6 +22,9 @@ public class Cardapio {
     public static List<Sobremesa> getSobremesas() {
         return sobremesas;
     }
+    public static List<Entrada> getEntradas() {
+        return entradas;
+    }
 
     public static void CardapioMenu(){
     
