@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import cs.up.edu.br.restaurante.classes.Busca;
 import cs.up.edu.br.restaurante.classes.Entrada;
 import cs.up.edu.br.restaurante.classes.Listar_cardapio;
 import cs.up.edu.br.restaurante.classes.Prato_principal;
@@ -53,7 +54,8 @@ public class Cardapio {
                 System.out.println("[2]pratos principais");
                 System.out.println("[3]sobremesas");
                 System.out.println("[4]Listagem de cardapio");
-                System.out.println("[5]Voltar");
+                System.out.println("[5]Procurar item especifico");
+                System.out.println("[6]Voltar");
                 System.out.print("Opcao: ");
                 opcao = scanner.nextInt();
                 System.out.println("-----------------------------------");
@@ -72,6 +74,9 @@ public class Cardapio {
                         Listar_cardapio.MenuListagem(entradas, principais, sobremesas);
                         break;
                     case 5:
+                        Busca.BuscarItem(entradas, principais, sobremesas);
+                        break;
+                    case 6:
                         Index.main(null);
                         break;
                     default:
