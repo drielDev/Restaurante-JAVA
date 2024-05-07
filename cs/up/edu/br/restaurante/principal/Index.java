@@ -1,6 +1,5 @@
 package cs.up.edu.br.restaurante.principal;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Scanner;
 
 import cs.up.edu.br.restaurante.menus.cardapio.Cardapio;

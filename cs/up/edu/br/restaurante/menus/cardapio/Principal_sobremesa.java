@@ -8,17 +8,20 @@ import cs.up.edu.br.restaurante.classes.Sobremesa;
 
 public class Principal_sobremesa {
     public static void EditarSobremesa(List<Sobremesa> sobremesas){
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
             
             int opcao = 0;
 
             do {
+                System.out.println("-----------------------------------");
                 System.out.println("[1]Adicionar sobremesa");
                 System.out.println("[2]Remover sobremesa");
                 System.out.println("[3]Listar sobremesas");
                 System.out.println("[4]voltar");
                 System.out.print("opcao: ");
                 opcao = scanner.nextInt();
+                System.out.println("-----------------------------------");
 
                 switch (opcao) {
                     case 1:

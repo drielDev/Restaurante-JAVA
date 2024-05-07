@@ -43,10 +43,12 @@ public class Cardapio {
             sobremesas.add(new Sobremesa("pudim", 10.50));
         }
 
-         Scanner scanner = new Scanner(System.in);
+         @SuppressWarnings("resource")
+        Scanner scanner = new Scanner(System.in);
             int opcao = -1;
 
             do {
+                System.out.println("-----------------------------------");;
                 System.out.println("[1]Entradas");
                 System.out.println("[2]pratos principais");
                 System.out.println("[3]sobremesas");
@@ -54,6 +56,7 @@ public class Cardapio {
                 System.out.println("[5]Voltar");
                 System.out.print("Opcao: ");
                 opcao = scanner.nextInt();
+                System.out.println("-----------------------------------");
 
                 switch (opcao) {
                     case 1:

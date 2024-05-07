@@ -34,6 +34,7 @@ public class Entrada extends Comida{
     }
 
     public static void Cria_entrada(List<Entrada> entradas) {
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Informe o nome: ");
@@ -47,10 +48,15 @@ public class Entrada extends Comida{
         novaEntrada.setPreco(preco);
         entradas.add(novaEntrada);
 
+        System.out.println();
+        System.out.println("+++++++++++++++++++++++++++++++");
         System.out.println("Entrada adicionada com sucesso!");
+        System.out.println("+++++++++++++++++++++++++++++++");
+        System.out.println();
     }
 
     public static void RemoveEntrada(List<Entrada> entradas){
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("informe o nome da entrada que deseja excluir: ");
@@ -66,9 +72,17 @@ public class Entrada extends Comida{
              }
         }
         if(!exist){
+            System.out.println(); 
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             System.out.println("entrada '" + exclui + "' nao encontrada (verifique letras maiusculas e minusculas)");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println();
         } else {
+            System.out.println();
+            System.out.println("+++++++++++++++++++++++++++++++");
             System.out.println("entrada Excluida com sucesso!");
+            System.out.println("+++++++++++++++++++++++++++++++");
+            System.out.println();
         }
     }
 
@@ -76,12 +90,17 @@ public class Entrada extends Comida{
         if (!entradas.isEmpty()) {
             // Ordena a lista de entradas em ordem alfabética
             Collections.sort(entradas, (e1, e2) -> e1.getNome().compareTo(e2.getNome()));
-            
+            System.out.println("___________ENTRADAS___________");
             for (Entrada entrada : entradas) {
                 System.out.println(entrada);
             }
+            System.out.println();
         } else {
+            System.out.println();
+            System.out.println("=====================================");
             System.out.println("cardapio de entradas está vazio!");
+            System.out.println("=====================================");
+            System.out.println();
         }
     }
 }

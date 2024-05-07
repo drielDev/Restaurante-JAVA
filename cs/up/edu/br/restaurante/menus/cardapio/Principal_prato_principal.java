@@ -8,17 +8,22 @@ import cs.up.edu.br.restaurante.classes.Prato_principal;
 
 public class Principal_prato_principal {
     public static void EditarPrincipal(List<Prato_principal> principais){
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
             
             int opcao = 0;
 
             do {
+                System.out.println();
+                System.out.println("-----------------------------------");
                 System.out.println("[1]Adicionar prato principal");
                 System.out.println("[2]Remover prato principal");
                 System.out.println("[3]Listar pratos principais");
                 System.out.println("[4]voltar");
                 System.out.print("opcao: ");
                 opcao = scanner.nextInt();
+                System.out.println("-----------------------------------");
+                System.out.println();
 
                 switch (opcao) {
                     case 1:

@@ -1,6 +1,5 @@
 package cs.up.edu.br.restaurante.menus.cardapio;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,17 +9,20 @@ public class Principal_entrada {
     
     
     public static void EditarEntrada(List<Entrada> entradas) {
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         
         int opcao = 0;
 
         do {
+            System.out.println("-----------------------------------");
             System.out.println("[1] Adicionar entrada");
             System.out.println("[2] Remover entrada");
             System.out.println("[3] Listar entradas");
             System.out.println("[4] Voltar");
             System.out.print("Opção: ");
             opcao = scanner.nextInt();
+            System.out.println("-----------------------------------");
 
             switch (opcao) {
                 case 1:

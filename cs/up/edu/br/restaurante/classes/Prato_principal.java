@@ -34,6 +34,7 @@ public class Prato_principal extends Comida{
     }
 
     public static void CriaPrato_principal(List<Prato_principal> pratos_principais) {
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         System.out.print("Informe o nome: ");
         String nome = scanner.nextLine();
@@ -51,6 +52,7 @@ public class Prato_principal extends Comida{
     }
 
     public static void RemovePrato_principal(List<Prato_principal> pratos_principais){
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         System.out.print("Informe o nome do prato principal que deseja excluir: ");
         String exclui = scanner.nextLine();
@@ -76,9 +78,11 @@ public class Prato_principal extends Comida{
         if (!pratos_principais.isEmpty()) {
             // Ordena a lista de entradas em ordem alfabética
             Collections.sort(pratos_principais, (e1, e2) -> e1.getNome().compareTo(e2.getNome()));
+            System.out.println("___________PRINCIPAIS___________");
             for (Prato_principal prato_principal : pratos_principais) {
                 System.out.println(prato_principal);
             }
+            System.out.println();
         } else {
             System.out.println("Cardápio de pratos principais está vazio!");
         }

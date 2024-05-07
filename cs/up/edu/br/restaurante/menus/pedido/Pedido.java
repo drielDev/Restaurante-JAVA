@@ -5,7 +5,6 @@ import cs.up.edu.br.restaurante.classes.Prato_principal;
 import cs.up.edu.br.restaurante.classes.Sobremesa;
 import cs.up.edu.br.restaurante.menus.cliente.Cliente;
 
-import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -98,6 +97,7 @@ public class Pedido {
 
     
     public static void adicionarPedido(List<Cliente>clientes, List<Pedido> pedidos, List<Entrada> entradas, List<Prato_principal> principais, List<Sobremesa> sobremesas){
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("informe o nome do cliente: ");
@@ -289,6 +289,7 @@ public class Pedido {
 
 
     public static void RemovePedido(List<Pedido> pedidos) {
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         System.out.print("Informe o nome e sobrenome do cliente que deseja excluir o pedido: ");
         String exclui = scanner.nextLine();

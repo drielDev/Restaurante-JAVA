@@ -35,6 +35,7 @@ public class Principal_pedido {
         }
             
         
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
             int opcao = -1;
 
@@ -43,7 +44,7 @@ public class Principal_pedido {
                 System.out.println("[1]Adicionar pedido");
                 System.out.println("[2]Remover pedido");
                 System.out.println("[3]Listar pedidos");
-                System.out.println("[5]Voltar");
+                System.out.println("[4]Voltar");
                 System.out.print("Opcao: ");
                 opcao = scanner.nextInt();
                 System.out.println("-----------------------------------");
@@ -62,7 +63,9 @@ public class Principal_pedido {
                         Index.main(null);
                         break;
                     default:
+                        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
                         System.out.println("Escolha uma opcao valida!");
+                        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
                         break;
                 }
             } while (opcao == 5);

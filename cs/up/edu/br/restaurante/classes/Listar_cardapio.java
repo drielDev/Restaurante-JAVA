@@ -8,10 +8,12 @@ import cs.up.edu.br.restaurante.menus.cardapio.Cardapio;
 public class Listar_cardapio {
     public static void  MenuListagem(List<Entrada> entradas, List<Prato_principal> principais, List<Sobremesa> sobremesas){
 
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         int opcao = -1;
     
             do {
+                System.out.println("-----------------------------------");
                 System.out.println("[1]Listar entradas");
                 System.out.println("[2]Listar pratos principais");
                 System.out.println("[3]Listar sobremesas");
@@ -19,7 +21,8 @@ public class Listar_cardapio {
                 System.out.println("[5]Voltar");
                 System.out.print("Opcao: ");
                 opcao = scanner.nextInt();
-    
+                System.out.println("-----------------------------------");
+
                 switch (opcao) {
                     case 1:
                        Entrada.ListarEntrada(entradas);
@@ -31,18 +34,23 @@ public class Listar_cardapio {
                         Sobremesa.ListarSobremesa(sobremesas);
                         break;
                     case 4:
-                        System.out.println("________ENTRADAS________");
+
                         Entrada.ListarEntrada(entradas);
-                        System.out.println("________PRINCIPAIS________");
+                        System.out.println();
+ 
                         Prato_principal.ListaPrato_principal(principais);
-                        System.out.println("________SOBREMESAS________");
+                        System.out.println();
+
                         Sobremesa.ListarSobremesa(sobremesas);
+                        System.out.println();
                         break;
                     case 5:
                         Cardapio.CardapioMenu();
                         break;
                     default:
+                    System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
                     System.out.println("Escolha uma opcao valida!");
+                    System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
                         break;
                 }
             } while (opcao != 5);

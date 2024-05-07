@@ -35,6 +35,7 @@ public class Sobremesa extends Comida {
     }
 
     public static void Cria_Sobremesa(List<Sobremesa> sobremesas) {
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         System.out.print("Informe o nome: ");
         String nome = scanner.nextLine();
@@ -52,6 +53,7 @@ public class Sobremesa extends Comida {
     }
 
     public static void RemoveSobremesa(List<Sobremesa> sobremesas) {
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         System.out.print("Informe o nome da sobremesa que deseja excluir: ");
         String exclui = scanner.nextLine();
@@ -77,9 +79,11 @@ public class Sobremesa extends Comida {
         if (!sobremesas.isEmpty()) {
             // Ordena a lista de entradas em ordem alfabética
             Collections.sort(sobremesas, (e1, e2) -> e1.getNome().compareTo(e2.getNome()));
+            System.out.println("___________SOBREMESAS___________");
             for (Sobremesa sobremesa : sobremesas) {
                 System.out.println(sobremesa);
             }
+            System.out.println();
         } else {
             System.out.println("Cardápio de sobremesas está vazio!");
         }
