@@ -7,6 +7,7 @@ import cs.up.edu.br.restaurante.menus.cliente.Cliente;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -106,14 +107,14 @@ public class Pedido {
         System.out.print("informe a mesa do cliente: ");
         Integer mesa = scanner.nextInt();
 
-        System.out.print("informe o prato de entrada (digite 0 caso nao queira): ");
+        System.out.print("informe o prato de entrada (digite 'nao' caso nao queira): ");
         String entradaUsuario = scanner.next();
         Entrada entrada = null;
         int encontrou = 0;
 
         Double valorTotal = 0.0;
 
-        while (!"0".equals(entradaUsuario)) {
+        while (!"nao".equals(entradaUsuario)) {
 
             for (Entrada entrada2 : entradas) {     
                 if (entrada2.getNome().equals(entradaUsuario)) {
@@ -127,18 +128,18 @@ public class Pedido {
                     break;
                 }
             }   
-            if (entradaUsuario == "0") {
+            if (entradaUsuario == "nao") {
                 encontrou = 1;
             }
             else if (encontrou == 0) {
                 System.out.println("Entrada nao encontrada no cardapio!");
             } else {
                 System.out.println("Entrada selecionada: " + entrada.getNome());
-                entradaUsuario = "0";
+                entradaUsuario = "nao";
             }
             if (entrada == null) {
                 
-                System.out.print("Informe o prato de entrada (digite 0 caso nao queira): ");
+                System.out.print("Informe o prato de entrada (digite 'nao' caso nao queira): ");
                 entradaUsuario = scanner.next();
             }
         }
@@ -147,13 +148,13 @@ public class Pedido {
             System.out.println("Nenhuma entrada selecionada.");
         }
         
-        System.out.print("informe o prato principal (digite 0 caso nao queira): ");
+        System.out.print("informe o prato principal (digite 'nao' caso nao queira): ");
         String principalUsuario = scanner.next();
         Prato_principal principal = null;
 
         encontrou = 0;
 
-        while (principalUsuario != "0") {
+        while (!"nao".equals(principalUsuario)) {
 
             for (Prato_principal principal2 : principais) {     
                 if (principal2.getNome().equals(principalUsuario)) {
@@ -167,18 +168,18 @@ public class Pedido {
                     break;
                 }
             }   
-            if (principalUsuario == "0") {
+            if (principalUsuario == "nao") {
                 encontrou = 1;
             }
             else if (encontrou == 0) {
                 System.out.println("Prato principal nao encontrado no cardapio!");
             } else {
                 System.out.println("Prato principal selecionado: " + principal.getNome());
-                principalUsuario = "0";
+                principalUsuario = "nao";
             }
             if (principal == null) {
                 
-                System.out.print("Informe o prato principal (digite 0 caso nao queira): ");
+                System.out.print("Informe o prato principal (digite 'nao' caso nao queira): ");
                 principalUsuario = scanner.next();
             }
         }
@@ -187,13 +188,13 @@ public class Pedido {
             System.out.println("Nenhum prato principal selecionado.");
         }
 
-        System.out.print("informe a sobremesa (digite 0 caso nao queira): ");
+        System.out.print("informe a sobremesa (digite 'nao' caso nao queira): ");
         String sobremesaUsuario = scanner.next();
         Sobremesa sobremesa = null;
 
         encontrou = 0;
 
-        while (!"0".equals(sobremesaUsuario)) {
+        while (!"nao".equals(sobremesaUsuario)) {
 
             for (Sobremesa sobremesa2 : sobremesas) {     
                 if (sobremesa2.getNome().equals(sobremesaUsuario)) {
@@ -212,23 +213,91 @@ public class Pedido {
                 System.out.println("Sobremesa nao encontrada no cardapio!");
             } else {
                 System.out.println("Sobremesa selecionada: " + sobremesa.getNome());
-                sobremesaUsuario = "0";
+                sobremesaUsuario = "nao";
             }
             if (sobremesa == null) {
                 
-                System.out.print("Informe a sobremesa (digite 0 caso nao queira): ");
+                System.out.print("Informe a sobremesa (digite 'nao' caso nao queira): ");
                 sobremesaUsuario = scanner.next();
             }
         }
         
         if (sobremesa == null) {
             System.out.println("Nenhuma sobremesa selecionada.");
+            
         }
 
-        System.out.println("________PEDIDO________ ");
-
-        pedidos.add(new Pedido(cliente, mesa, entrada, principal, sobremesa, 2.9));
         
-    
+        System.out.println("________PEDIDO________ ");
+        System.out.println("Nome: " + nome);
+        System.out.println("Mesa: " + mesa);
+        System.out.println("Entrada: " + entrada);
+        System.out.println("Prato principal: " + principal);
+        System.out.println("Sobremesa: " + sobremesa);
+        System.out.println("Valor total a ser pago: " + valorTotal + "$ reais");
+
+
+        pedidos.add(new Pedido(cliente, mesa, entrada, principal, sobremesa, valorTotal));
+
+        Principal_pedido.PedidoMenu();
+        
     }    
+
+
+    public static void ListarPedido(List<Pedido> pedidos){
+        
+        if (!pedidos.isEmpty()) {
+            // Ordena a lista de entradas em ordem alfabética
+            Collections.sort(pedidos, (e1, e2) -> e1.getCliente().compareTo(e2.getCliente()));
+            
+            for (Pedido pedido : pedidos) {
+                System.out.println(pedido);
+            }
+        } else {
+            System.out.println("Sem pedidos!");
+        }
+
+        Principal_pedido.PedidoMenu();
+    }
+
+
+    public static void RemovePedido(List<Pedido> pedidos) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Informe o nome e sobrenome do cliente que deseja excluir o pedido: ");
+        String exclui = scanner.nextLine();
+    
+        boolean encontrado = false;
+    
+        for (int i = 0; i < pedidos.size(); i++) {
+            Pedido pedido = pedidos.get(i);
+            if (pedido.getCliente().getNome().equals(exclui)) {
+                pedidos.remove(i);
+                encontrado = true;
+                break;
+            }
+        }
+        
+        if (!encontrado) {
+            System.out.println("Pedido para o cliente '" + exclui + "' não encontrado.");
+        } else {
+            System.out.println("Pedido excluído com sucesso!");
+        }
+        Principal_pedido.PedidoMenu();
+    }
+
+
+
+
+    @Override
+    public String toString() {
+        return "________PEDIDO________\n" +
+        "Nome: " + cliente.getNome() + "\n" +
+        "Mesa: " + mesa + "\n" +
+        "Entrada: " + entrada + "\n" +
+        "Prato principal: " + pratoPrincipal + "\n" +
+        "Sobremesa: " + sobremesa + "\n" +
+        "Valor total a ser pago: " + totalConta + "$\n";
+    }
+
+    
 }

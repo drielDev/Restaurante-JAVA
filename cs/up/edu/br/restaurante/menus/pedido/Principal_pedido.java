@@ -18,10 +18,12 @@ public class Principal_pedido {
     private static List<Sobremesa> sobremesas = Cardapio.getSobremesas();
     private static List<Entrada> entradas = Cardapio.getEntradas();
 
+
     public static void PedidoMenu(){
         if (entradas.isEmpty()) {
             entradas.add(new Entrada("pao", 2.99));
             entradas.add(new Entrada("biscoito", 1.99));
+            
         }
         if (principais.isEmpty()) {
             principais.add(new Prato_principal("lasanha", 20.0));
@@ -31,7 +33,7 @@ public class Principal_pedido {
             sobremesas.add(new Sobremesa("sorvete", 5.50));
             sobremesas.add(new Sobremesa("pudim", 10.50));
         }
-        
+            
         clientes.add(new Cliente("adriel"));
         clientes.add(new Cliente("dri"));
 
@@ -39,7 +41,7 @@ public class Principal_pedido {
         Prato_principal lasanha = principais.get(0);
         Sobremesa sorvete = sobremesas.get(0);
 
-        pedidos.add(new Pedido(adriel, 123, null, lasanha, sorvete, null));
+        pedidos.add(new Pedido(adriel, 123, null, lasanha, sorvete, 25.50));
 
         Scanner scanner = new Scanner(System.in);
             int opcao = -1;
@@ -58,10 +60,10 @@ public class Principal_pedido {
                        Pedido.adicionarPedido(clientes, pedidos, entradas, principais, sobremesas);
                         break;
                     case 2:
-                        
+                        Pedido.RemovePedido(pedidos);
                         break;
                     case 3:
-                        
+                        Pedido.ListarPedido(pedidos);
                         break;
                     case 4:
                         
