@@ -1,5 +1,6 @@
 package cs.up.edu.br.restaurante.classes;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -73,6 +74,8 @@ public class Prato_principal extends Comida{
 
     public static void ListaPrato_principal(List<Prato_principal> pratos_principais){
         if (!pratos_principais.isEmpty()) {
+            // Ordena a lista de entradas em ordem alfabética
+            Collections.sort(pratos_principais, (e1, e2) -> e1.getNome().compareTo(e2.getNome()));
             for (Prato_principal prato_principal : pratos_principais) {
                 System.out.println(prato_principal);
             }

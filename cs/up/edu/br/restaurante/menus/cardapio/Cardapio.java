@@ -1,4 +1,4 @@
-package cs.up.edu.br.restaurante.menus;
+package cs.up.edu.br.restaurante.menus.cardapio;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,11 +14,33 @@ public class Cardapio {
     private static List<Entrada> entradas = new ArrayList<>();
     private static List<Prato_principal> principais = new ArrayList<>();
     private static List<Sobremesa> sobremesas = new ArrayList<>();
-    
+
+    // Método para retornar a lista de pratos principais
+    public static List<Prato_principal> getPrincipais() {
+        return principais;
+    }
+    public static List<Sobremesa> getSobremesas() {
+        return sobremesas;
+    }
+
     public static void CardapioMenu(){
-        
-        
-        try (Scanner scanner = new Scanner(System.in)) {
+    
+        if (entradas.isEmpty()) {
+            entradas.add(new Entrada("pao", 2.99));
+            entradas.add(new Entrada("biscoito", 1.99));
+        }
+
+        if (principais.isEmpty()) {
+            principais.add(new Prato_principal("lasanha", 20.0));
+            principais.add(new Prato_principal("picanha", 50.0));
+        }
+
+        if (sobremesas.isEmpty()) {
+            sobremesas.add(new Sobremesa("sorvete", 5.50));
+            sobremesas.add(new Sobremesa("pudim", 10.50));
+        }
+
+         Scanner scanner = new Scanner(System.in);
             int opcao = -1;
 
             do {
@@ -47,9 +69,10 @@ public class Cardapio {
                         Index.main(null);
                         break;
                     default:
+                        System.out.println("Escolha uma opcao valida!");
                         break;
                 }
             } while (opcao == 5);
-        }
+        
     }
 }

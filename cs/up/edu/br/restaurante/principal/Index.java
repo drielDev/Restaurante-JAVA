@@ -1,11 +1,18 @@
 package cs.up.edu.br.restaurante.principal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
+import cs.up.edu.br.restaurante.menus.cardapio.Cardapio;
 
-import cs.up.edu.br.restaurante.menus.Cardapio;
 
 public class Index {
+
+    
+    
+    
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
         int opcao = -1;
 
@@ -13,7 +20,6 @@ public class Index {
 
             System.out.println("[1]Acessar cardapio");
             System.out.println("[2]Acessar pedidos");
-            System.out.println("[3]Acessar clientes");
             System.out.println("[4]Acessar Funcionarios");
             System.out.print("Opcao: ");
             opcao = scanner.nextInt();

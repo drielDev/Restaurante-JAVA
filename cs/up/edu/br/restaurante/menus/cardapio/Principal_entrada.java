@@ -1,11 +1,14 @@
-package cs.up.edu.br.restaurante.menus;
+package cs.up.edu.br.restaurante.menus.cardapio;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import cs.up.edu.br.restaurante.classes.Entrada;
 
 public class Principal_entrada {
+    
+    
     public static void EditarEntrada(List<Entrada> entradas) {
         Scanner scanner = new Scanner(System.in);
         

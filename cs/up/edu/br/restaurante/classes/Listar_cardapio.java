@@ -3,6 +3,8 @@ package cs.up.edu.br.restaurante.classes;
 import java.util.List;
 import java.util.Scanner;
 
+import cs.up.edu.br.restaurante.menus.cardapio.Cardapio;
+
 public class Listar_cardapio {
     public static void  MenuListagem(List<Entrada> entradas, List<Prato_principal> principais, List<Sobremesa> sobremesas){
 
@@ -29,13 +31,18 @@ public class Listar_cardapio {
                         Sobremesa.ListarSobremesa(sobremesas);
                         break;
                     case 4:
-                        System.out.print("_____ENTRADAS_____");
+                        System.out.println("________ENTRADAS________");
                         Entrada.ListarEntrada(entradas);
+                        System.out.println("________PRINCIPAIS________");
+                        Prato_principal.ListaPrato_principal(principais);
+                        System.out.println("________SOBREMESAS________");
+                        Sobremesa.ListarSobremesa(sobremesas);
                         break;
                     case 5:
-                        
+                        Cardapio.CardapioMenu();
                         break;
                     default:
+                    System.out.println("Escolha uma opcao valida!");
                         break;
                 }
             } while (opcao != 5);

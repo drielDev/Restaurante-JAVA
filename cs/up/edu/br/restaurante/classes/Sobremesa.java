@@ -1,5 +1,6 @@
 package cs.up.edu.br.restaurante.classes;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -74,6 +75,8 @@ public class Sobremesa extends Comida {
 
     public static void ListarSobremesa(List<Sobremesa> sobremesas) {
         if (!sobremesas.isEmpty()) {
+            // Ordena a lista de entradas em ordem alfabética
+            Collections.sort(sobremesas, (e1, e2) -> e1.getNome().compareTo(e2.getNome()));
             for (Sobremesa sobremesa : sobremesas) {
                 System.out.println(sobremesa);
             }
