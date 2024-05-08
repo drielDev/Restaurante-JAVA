@@ -36,6 +36,7 @@ public class Funcionario {
 
     // Método para exibir o menu de funcionário
     public static void FuncionarioMenu() {
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         boolean sair = false;
 

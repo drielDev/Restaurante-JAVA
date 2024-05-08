@@ -3,7 +3,6 @@ package cs.up.edu.br.restaurante.classes;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
-import cs.up.edu.br.restaurante.classes.FileManager;
 
 // Classe Entrada
 public class Entrada extends Comida{
