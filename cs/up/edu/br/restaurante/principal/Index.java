@@ -5,34 +5,44 @@ import java.util.Scanner;
 import cs.up.edu.br.restaurante.menus.cardapio.Cardapio;
 import cs.up.edu.br.restaurante.menus.pedido.Principal_pedido;
 
-
+/**
+ * Esta classe representa o ponto de entrada do programa.
+ */
 public class Index {
 
-    
+    /**
+     * Método principal que inicia a execução do programa.
+     * @param args os argumentos de linha de comando (não utilizados)
+     */
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
         int opcao = -1;
 
+        // Loop principal que permite ao usuário interagir com o sistema
         do {
-
+            // Exibe o menu de opções
             System.out.println("[1]Acessar cardapio");
             System.out.println("[2]Acessar pedidos");
-            System.out.println("[4]Acessar Funcionarios");
+            System.out.println("[3]Acessar Funcionarios");
             System.out.print("Opcao: ");
             opcao = scanner.nextInt();
 
+            // Executa a opção escolhida pelo usuário
             switch (opcao) {
                 case 1:
-                       Cardapio.CardapioMenu();
+                    // Acessa o menu do cardápio
+                    Cardapio.CardapioMenu();
                     break;
                 case 2:
-                        Principal_pedido.PedidoMenu();
+                    // Acessa o menu de pedidos
+                    Principal_pedido.PedidoMenu();
                     break;
                 default:
+                    // Caso a opção seja inválida, não faz nada
                     break;
             }
-        } while (opcao == 0);
-        scanner.close();
+        } while (opcao == 0); // Repete o loop enquanto a opção for 0
+        scanner.close(); // Fecha o scanner para evitar vazamentos de recursos
     }
 }
