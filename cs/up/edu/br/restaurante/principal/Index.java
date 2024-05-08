@@ -3,6 +3,7 @@ package cs.up.edu.br.restaurante.principal;
 import java.util.Scanner;
 
 import cs.up.edu.br.restaurante.menus.cardapio.Cardapio;
+import cs.up.edu.br.restaurante.menus.funcionario.Funcionario;
 import cs.up.edu.br.restaurante.menus.pedido.Principal_pedido;
 
 /**
@@ -39,7 +40,8 @@ public class Index {
                     Principal_pedido.PedidoMenu();
                     break;
                 default:
-                    // Caso a opção seja inválida, não faz nada
+                case 3:
+                    Funcionario.FuncionarioMenu();;
                     break;
             }
         } while (opcao == 0); // Repete o loop enquanto a opção for 0
