@@ -91,7 +91,7 @@ public class Prato_principal extends Comida{
 
         // Chamada ao FileManager para salvar os dados de todos os pratos principais listados
         for (Prato_principal principal : pratos_principais) {
-            String dados = "Entrada: " + principal.getNome() + ", Preço: " + principal.getPreco();
+            String dados = "Prato pincipal: " + principal.getNome() + ", Preço: " + principal.getPreco();
             FileManager.salvarDados(dados, "prato_principal.txt");
         }
     }
