@@ -1,20 +1,33 @@
 package cs.up.edu.br.restaurante.principal;
 
+import java.util.List;
 import java.util.Scanner;
 
+import cs.up.edu.br.restaurante.classes.Entrada;
+import cs.up.edu.br.restaurante.classes.Prato_principal;
+import cs.up.edu.br.restaurante.classes.Sobremesa;
+import cs.up.edu.br.restaurante.classes.FileManager;
 import cs.up.edu.br.restaurante.menus.cardapio.Cardapio;
+import cs.up.edu.br.restaurante.menus.funcionario.Funcionario;
 import cs.up.edu.br.restaurante.menus.pedido.Principal_pedido;
 
 /**
  * Esta classe representa o ponto de entrada do programa.
  */
 public class Index {
-
     /**
      * Método principal que inicia a execução do programa.
      * @param args os argumentos de linha de comando (não utilizados)
      */
+
+     private static List<Entrada> entradas = Cardapio.getEntradas();
+     private static List<Prato_principal> principais = Cardapio.getPrincipais();
+     private static List<Sobremesa> sobremesas = Cardapio.getSobremesas();
     public static void main(String[] args) {
+
+        FileManager.carregarEntradas(entradas);
+        FileManager.carregarPratros_principais(principais);
+        FileManager.carregarSobremesa(sobremesas);
 
         Scanner scanner = new Scanner(System.in);
         int opcao = -1;
@@ -25,6 +38,7 @@ public class Index {
             System.out.println("[1]Acessar cardapio");
             System.out.println("[2]Acessar pedidos");
             System.out.println("[3]Acessar Funcionarios");
+            System.out.println("[4]Sair");
             System.out.print("Opcao: ");
             opcao = scanner.nextInt();
 
@@ -38,11 +52,17 @@ public class Index {
                     // Acessa o menu de pedidos
                     Principal_pedido.PedidoMenu();
                     break;
+                case 3:
+                // Acessa o menu de funcionarios
+                   Funcionario.FuncionarioMenu();
+                    break;
+                case 4:
+                // Mensagem avisando o fim do programa
+                   System.out.println("Saindo...");
+                    break;
                 default:
-                    // Caso a opção seja inválida, não faz nada
                     break;
             }
-        } while (opcao == 0); // Repete o loop enquanto a opção for 0
-        scanner.close(); // Fecha o scanner para evitar vazamentos de recursos
+        } while (opcao != 4); // Repete o loop enquanto a nao for 4
     }
 }

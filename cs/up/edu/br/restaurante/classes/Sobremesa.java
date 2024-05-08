@@ -1,22 +1,41 @@
 package cs.up.edu.br.restaurante.classes;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-
 // Classe representando as sobremesas no restaurante
-public class Sobremesa extends Comida {
-
+public class Sobremesa {
+    private String nome;
+    private Double preco;
+    
     // Construtores
     public Sobremesa() {
     }
 
     public Sobremesa(String nome, Double preco) {
-        super(nome, preco);
+        this.nome = nome;
+        this.preco = preco;
     }
 
-    // Getters e setters herdados da superclasse Comida
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
+    }
 
     @Override
     public String toString() {
@@ -38,12 +57,15 @@ public class Sobremesa extends Comida {
         novaSobremesa.setPreco(preco);
         sobremesas.add(novaSobremesa);
 
-        // Mensagem de confirmação
+        // Exibe uma mensagem de sucesso
+        System.out.println();
+        System.out.println("+++++++++++++++++++++++++++++++");
         System.out.println("Sobremesa adicionada com sucesso!");
+        System.out.println("+++++++++++++++++++++++++++++++");
         
-        // Chamada ao FileManager para salvar os dados da sobremesa criada
-        String dados = "Nova sobremesa: " + nome + ", Preço: " + preco;
-        FileManager.salvarDados(dados, "sobremesa.txt");
+        // Salva os dados da Sobremesa em um arquivo
+        String dados =  nome + ", Preço: " + preco;
+        FileManager.salvarDados(dados, "sobremesas.txt");
     }
 
     // Método para remover uma sobremesa da lista
@@ -64,16 +86,34 @@ public class Sobremesa extends Comida {
         }
         if (!exist) {
             // Mensagem de erro se a sobremesa não for encontrada
+            System.out.println(); 
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             System.out.println("Sobremesa '" + exclui + "' não encontrada (verifique letras maiúsculas e minúsculas)");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println();
         } else {
-            // Mensagem de confirmação após a exclusão bem-sucedida
+            System.out.println();
+            System.out.println("+++++++++++++++++++++++++++++++");
             System.out.println("Sobremesa excluída com sucesso!");
+            System.out.println("+++++++++++++++++++++++++++++++");
+            System.out.println();
+            // Salva os dados da remoção em um arquivo
+            salvarSobremesa(sobremesas);
         }
-        
-        // Chamada ao FileManager para salvar o nome da sobremesa removida
-        String dados = "Sobremesa removida: " + exclui;
-        FileManager.salvarDados(dados, "sobremesa.txt");
     }
+
+        private static void salvarSobremesa(List<Sobremesa> sobremesas) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter("Sobremesas.txt"))) {
+                for (Sobremesa sobremesa : sobremesas) {
+                    String dados = sobremesa.getNome() + ", Preço: " + sobremesa.getPreco();
+                    writer.write(dados);
+                    writer.newLine(); // Adicione uma nova linha após cada conjunto de dados
+                }
+            } catch (IOException e) {
+                System.err.println("Erro ao salvar os dados das Sobremesas no arquivo: " + e.getMessage());
+        }
+    }
+    
 
     // Método para listar todas as sobremesas do cardápio
     public static void ListarSobremesa(List<Sobremesa> sobremesas) {
@@ -87,13 +127,11 @@ public class Sobremesa extends Comida {
             System.out.println();
         } else {
             // Mensagem informando que o cardápio de sobremesas está vazio
+            System.out.println();
+            System.out.println("=====================================");
             System.out.println("Cardápio de sobremesas está vazio!");
-        }
-
-        // Chamada ao FileManager para salvar os dados de todas as sobremesas listadas
-        for (Sobremesa sobremesa : sobremesas) {
-            String dados = "Sobremesa: " + sobremesa.getNome() + ", Preço: " + sobremesa.getPreco();
-            FileManager.salvarDados(dados, "sobremesa.txt");
+            System.out.println("=====================================");
+            System.out.println(); 
         }
     } 
 }

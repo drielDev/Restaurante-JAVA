@@ -33,22 +33,6 @@ public class Cardapio {
 
     // Método para exibir o menu do cardápio
     public static void CardapioMenu() {
-        // Inicialização dos itens do cardápio se estiverem vazios
-        if (entradas.isEmpty()) {
-            entradas.add(new Entrada("pao", 2.99));
-            entradas.add(new Entrada("biscoito", 1.99));
-        }
-
-        if (principais.isEmpty()) {
-            principais.add(new Prato_principal("lasanha", 20.0));
-            principais.add(new Prato_principal("picanha", 50.0));
-        }
-
-        if (sobremesas.isEmpty()) {
-            sobremesas.add(new Sobremesa("sorvete", 5.50));
-            sobremesas.add(new Sobremesa("pudim", 10.50));
-        }
-
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         int opcao = -1;

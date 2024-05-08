@@ -1,21 +1,45 @@
 package cs.up.edu.br.restaurante.classes;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
 
+
+
 // Classe representando os pratos principais no restaurante
-public class Prato_principal extends Comida{
+public class Prato_principal{
+    private String nome;
+    private Double preco;
 
     // Construtores
     public Prato_principal(){ }
 
     public Prato_principal(String nome, Double preco){
-        super(nome, preco);
+        this.nome = nome;
+        this.preco = preco;
     }
 
-    // Getters e setters herdados da superclasse Comida
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
+    }
 
     @Override
     public String toString() {
@@ -29,7 +53,7 @@ public class Prato_principal extends Comida{
         System.out.print("Informe o nome: ");
         String nome = scanner.nextLine();
 
-        System.out.print("Informe o preco: ");
+        System.out.print("Informe o preço: ");
         Double preco = scanner.nextDouble();
         
         Prato_principal novoPrato = new Prato_principal();
@@ -37,12 +61,15 @@ public class Prato_principal extends Comida{
         novoPrato.setPreco(preco);
         pratos_principais.add(novoPrato);
 
-        // Mensagem de confirmação
-        System.out.println("Prato principal adicionado com sucesso!");
+        // Exibe uma mensagem de sucesso
+        System.out.println();
+        System.out.println("+++++++++++++++++++++++++++++++");
+        System.out.println("Prato principal adicionada com sucesso!");
+        System.out.println("+++++++++++++++++++++++++++++++");
         
-        // Chamada ao FileManager para salvar os dados do prato principal criado
-        String dados = "Novo prato principal: " + nome + ", Preço: " + preco;
-        FileManager.salvarDados(dados, "prato_principal.txt");
+        // Salva os dados ddo prato principal em um arquivo
+        String dados =  nome + ", Preço: " + preco;
+        FileManager.salvarDados(dados, "principais.txt");
     }
 
     // Método para remover um prato principal da lista
@@ -65,14 +92,27 @@ public class Prato_principal extends Comida{
             // Mensagem de erro se o prato principal não for encontrado
             System.out.println("Prato principal '" + exclui + "' não encontrado (verifique letras maiúsculas e minúsculas)");
         } else {
-            // Mensagem de confirmação após a exclusão bem-sucedida
-            System.out.println("Prato principal excluído com sucesso!");
+            System.out.println();
+            System.out.println("+++++++++++++++++++++++++++++++");
+            System.out.println("Prato principal excluída com sucesso!");
+            System.out.println("+++++++++++++++++++++++++++++++");
+            System.out.println();
+            // Salva os dados da remoção em um arquivo
+            salvarPrato_principal(pratos_principais);
         }
-        
-        // Chamada ao FileManager para salvar o nome do prato principal removido
-        String dados = "Prato principal removido: " + exclui;
-        FileManager.salvarDados(dados, "prato_principal.txt");
-    }
+    }    
+
+        private static void salvarPrato_principal(List<Prato_principal> principais) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter("principais.txt"))) {
+                for (Prato_principal principal : principais) {
+                    String dados =  principal.getNome() + ", Preço: " + principal.getPreco();
+                    writer.write(dados);
+                    writer.newLine(); // Adicione uma nova linha após cada conjunto de dados
+                }
+            } catch (IOException e) {
+                System.err.println("Erro ao salvar os dados de pato principal no arquivo: " + e.getMessage());
+            }     
+        }
 
     // Método para listar todos os pratos principais do cardápio
     public static void ListaPrato_principal(List<Prato_principal> pratos_principais){
@@ -86,13 +126,16 @@ public class Prato_principal extends Comida{
             System.out.println();
         } else {
             // Mensagem informando que o cardápio de pratos principais está vazio
-            System.out.println("Cardápio de pratos principais está vazio!");
-        }
-
-        // Chamada ao FileManager para salvar os dados de todos os pratos principais listados
-        for (Prato_principal principal : pratos_principais) {
-            String dados = "Entrada: " + principal.getNome() + ", Preço: " + principal.getPreco();
-            FileManager.salvarDados(dados, "prato_principal.txt");
+            System.out.println();
+            System.out.println("=====================================");
+            System.out.println("Cardápio de Prato principal está vazio!");
+            System.out.println("=====================================");
+            System.out.println(); 
         }
     }
 }
+
+
+    
+        
+
