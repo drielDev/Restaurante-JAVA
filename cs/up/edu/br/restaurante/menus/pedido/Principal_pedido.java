@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import cs.up.edu.br.restaurante.classes.Cliente;
 import cs.up.edu.br.restaurante.classes.Entrada;
+import cs.up.edu.br.restaurante.classes.Pedido;
 import cs.up.edu.br.restaurante.classes.Prato_principal;
 import cs.up.edu.br.restaurante.classes.Sobremesa;
 import cs.up.edu.br.restaurante.menus.cardapio.Cardapio;
-import cs.up.edu.br.restaurante.menus.cliente.Cliente;
 import cs.up.edu.br.restaurante.principal.Index;
 
 /**
@@ -27,22 +28,6 @@ public class Principal_pedido {
      * Método que exibe o menu de pedidos e permite a interação do usuário.
      */
     public static void PedidoMenu(){
-        // Verifica se as listas de entradas, pratos principais e sobremesas estão vazias
-        if (entradas.isEmpty()) {
-            // Se estiverem vazias, adiciona itens padrão
-            entradas.add(new Entrada("pao", 2.99));
-            entradas.add(new Entrada("biscoito", 1.99));  
-        }
-        if (principais.isEmpty()) {
-            principais.add(new Prato_principal("lasanha", 20.0));
-            principais.add(new Prato_principal("picanha", 50.0));
-        }
-        if (sobremesas.isEmpty()) {
-            sobremesas.add(new Sobremesa("sorvete", 5.50));
-            sobremesas.add(new Sobremesa("pudim", 10.50));
-        }
-            
-        
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         int opcao = -1;

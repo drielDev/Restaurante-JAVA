@@ -29,8 +29,10 @@ public class Index {
         FileManager.carregarPratros_principais(principais);
         FileManager.carregarSobremesa(sobremesas);
 
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
-        int opcao = -1;
+        int opcao1 = -1;
+
 
         // Loop principal que permite ao usuário interagir com o sistema
         do {
@@ -40,10 +42,10 @@ public class Index {
             System.out.println("[3]Acessar Funcionarios");
             System.out.println("[4]Sair");
             System.out.print("Opcao: ");
-            opcao = scanner.nextInt();
+            opcao1 = scanner.nextInt();
 
             // Executa a opção escolhida pelo usuário
-            switch (opcao) {
+            switch (opcao1) {
                 case 1:
                     // Acessa o menu do cardápio
                     Cardapio.CardapioMenu();
@@ -63,6 +65,6 @@ public class Index {
                 default:
                     break;
             }
-        } while (opcao != 4); // Repete o loop enquanto a nao for 4
+        } while (opcao1 != 4); // Repete o loop enquanto a nao for 4
     }
 }
