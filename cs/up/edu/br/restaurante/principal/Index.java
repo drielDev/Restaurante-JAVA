@@ -6,6 +6,7 @@ import java.util.Scanner;
 import cs.up.edu.br.restaurante.classes.Entrada;
 import cs.up.edu.br.restaurante.classes.Prato_principal;
 import cs.up.edu.br.restaurante.classes.Sobremesa;
+import cs.up.edu.br.restaurante.classes.Funcionario;
 import cs.up.edu.br.restaurante.classes.FileManager;
 import cs.up.edu.br.restaurante.menus.cardapio.Cardapio;
 import cs.up.edu.br.restaurante.menus.funcionario.PrincipalFuncionario;
@@ -23,11 +24,13 @@ public class Index {
      private static List<Entrada> entradas = Cardapio.getEntradas();
      private static List<Prato_principal> principais = Cardapio.getPrincipais();
      private static List<Sobremesa> sobremesas = Cardapio.getSobremesas();
+     private static List<Funcionario> funcionarios = PrincipalFuncionario.getFuncionarios();
     public static void main(String[] args) {
 
         FileManager.carregarEntradas(entradas);
         FileManager.carregarPratros_principais(principais);
         FileManager.carregarSobremesa(sobremesas);
+        FileManager.carregarFuncionario(funcionarios);
 
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
@@ -61,6 +64,7 @@ public class Index {
                 case 4:
                 // Mensagem avisando o fim do programa
                    System.out.println("Saindo...");
+                   opcao1 = 4;
                     break;
                 default:
                     break;

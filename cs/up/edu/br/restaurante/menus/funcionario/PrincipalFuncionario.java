@@ -5,13 +5,17 @@ import java.util.List;
 import java.util.Scanner;
 
 import cs.up.edu.br.restaurante.classes.Funcionario;
-import cs.up.edu.br.restaurante.classes.Sobremesa;
 import cs.up.edu.br.restaurante.principal.Index;
 
 public class PrincipalFuncionario {
-    private static List<Funcionario> funcionarios = new ArrayList<>();
-    public static void FuncionarioMenu(){
 
+    private static List<Funcionario> funcionarios = new ArrayList<>();
+
+    public static List<Funcionario> getFuncionarios() {
+        return funcionarios;
+    }
+
+    public static void FuncionarioMenu(){
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
          int opcao = 0;

@@ -42,7 +42,7 @@ public class Funcionario {
     // Método para exibir a representação textual de um Funcionario
     @Override
     public String toString() {
-        return "Nome: " + getNome() + ", cargo: " + getCargo();
+        return "Nome: " + getNome() + ", Cargo: " + getCargo();
     }
 
     // Método para cadastar um novo funcionario
@@ -68,9 +68,7 @@ public class Funcionario {
     System.out.println("+++++++++++++++++++++++++++++++");
     System.out.println("Funcionario adicionado com sucesso!");
     System.out.println("+++++++++++++++++++++++++++++++");
-
-    // Salva os dados do funcionario em um arquivo
-    String dados =  nome + ", Cargo: " + cargo;
+    String dados =  nome + " Cargo: " + cargo;
     FileManager.salvarDados(dados, "funcionarios.txt");
     }
 
@@ -107,23 +105,9 @@ public class Funcionario {
             System.out.println("funcionario excluído com sucesso!");
             System.out.println("+++++++++++++++++++++++++++++++");
             System.out.println();
-            // Salva os dados da remoção em um arquivo
             salvarFuncionarios(funcionarios);
         }
     }
-
-    private static void salvarFuncionarios(List<Funcionario> funcionarios) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("funcionarios.txt"))) {
-            for (Funcionario funcionario : funcionarios) {
-                String dados = funcionario.getNome() + ", Preço: " + funcionario.getCargo();
-                writer.write(dados);
-                writer.newLine(); // Adicione uma nova linha após cada conjunto de dados
-            }
-        } catch (IOException e) {
-            System.err.println("Erro ao salvar os dados dos funcionarios no arquivo: " + e.getMessage());
-        }
-    }
-
 
      // Método para listar os funcionarios disponíveis
     public static void Listarfuncionario(List<Funcionario> funcionarios){
@@ -141,11 +125,21 @@ public class Funcionario {
             System.out.println("Lista de funcionarios está vazia!");
             System.out.println("=====================================");
             System.out.println(); 
+            
         }
     }
 
-
-
+    private static void salvarFuncionarios(List<Funcionario> funcionarios) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("funcionarios.txt"))) {
+            for (Funcionario funcionario : funcionarios) {
+                String dados = funcionario.getNome() + " Cargo: " + funcionario.getCargo();
+                writer.write(dados);
+                writer.newLine(); // Adicione uma nova linha após cada conjunto de dados
+            }
+        } catch (IOException e) {
+            System.err.println("Erro ao salvar os dados dos funcionarios no arquivo: " + e.getMessage());
+        }
+    }
 
 }
 
