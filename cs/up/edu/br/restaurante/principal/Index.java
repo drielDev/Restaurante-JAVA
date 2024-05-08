@@ -8,7 +8,7 @@ import cs.up.edu.br.restaurante.classes.Prato_principal;
 import cs.up.edu.br.restaurante.classes.Sobremesa;
 import cs.up.edu.br.restaurante.classes.FileManager;
 import cs.up.edu.br.restaurante.menus.cardapio.Cardapio;
-import cs.up.edu.br.restaurante.classes.Funcionario;
+import cs.up.edu.br.restaurante.menus.funcionario.PrincipalFuncionario;
 import cs.up.edu.br.restaurante.menus.pedido.Principal_pedido;
 
 /**
@@ -56,7 +56,7 @@ public class Index {
                     break;
                 case 3:
                 // Acessa o menu de funcionarios
-                   Funcionario.FuncionarioMenu();
+                   PrincipalFuncionario.FuncionarioMenu();
                     break;
                 case 4:
                 // Mensagem avisando o fim do programa
