@@ -66,8 +66,6 @@ public class Entrada extends Comida{
         // Salva os dados da entrada em um arquivo
         String dados = "Nova entrada: " + nome + ", Preço: " + preco;
         FileManager.salvarDados(dados, "entradas.txt");
-
-        System.out.println("Entrada adicionada com sucesso!");
     }
 
     // Método para remover uma entrada

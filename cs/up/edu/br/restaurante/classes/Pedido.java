@@ -1,17 +1,11 @@
-package cs.up.edu.br.restaurante.menus.pedido;
-
-// Esta classe representa um pedido feito por um cliente no restaurante.
-
-// Importação das classes necessárias
-import cs.up.edu.br.restaurante.classes.Entrada;
-import cs.up.edu.br.restaurante.classes.Prato_principal;
-import cs.up.edu.br.restaurante.classes.Sobremesa;
-import cs.up.edu.br.restaurante.menus.cliente.Cliente;
+package cs.up.edu.br.restaurante.classes;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+
+import cs.up.edu.br.restaurante.menus.pedido.Principal_pedido;
 
 public class Pedido {
     // Atributos da classe Pedido

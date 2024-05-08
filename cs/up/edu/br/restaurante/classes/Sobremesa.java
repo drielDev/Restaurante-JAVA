@@ -39,7 +39,11 @@ public class Sobremesa extends Comida {
         sobremesas.add(novaSobremesa);
 
         // Mensagem de confirmação
+        System.out.println();
+        System.out.println("+++++++++++++++++++++++++++++++++++++++");
         System.out.println("Sobremesa adicionada com sucesso!");
+        System.out.println("+++++++++++++++++++++++++++++++++++++++");
+        System.out.println();
         
         // Chamada ao FileManager para salvar os dados da sobremesa criada
         String dados = "Nova sobremesa: " + nome + ", Preço: " + preco;

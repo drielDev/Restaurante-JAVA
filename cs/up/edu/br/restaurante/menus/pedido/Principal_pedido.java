@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import cs.up.edu.br.restaurante.classes.Cliente;
 import cs.up.edu.br.restaurante.classes.Entrada;
+import cs.up.edu.br.restaurante.classes.Pedido;
 import cs.up.edu.br.restaurante.classes.Prato_principal;
 import cs.up.edu.br.restaurante.classes.Sobremesa;
 import cs.up.edu.br.restaurante.menus.cardapio.Cardapio;
-import cs.up.edu.br.restaurante.menus.cliente.Cliente;
 import cs.up.edu.br.restaurante.principal.Index;
 
 /**

@@ -38,7 +38,10 @@ public class Prato_principal extends Comida{
         pratos_principais.add(novoPrato);
 
         // Mensagem de confirmação
+        System.out.println();
+        System.out.println("+++++++++++++++++++++++++++++++++++++++");
         System.out.println("Prato principal adicionado com sucesso!");
+        System.out.println("+++++++++++++++++++++++++++++++++++++++");
         
         // Chamada ao FileManager para salvar os dados do prato principal criado
         String dados = "Novo prato principal: " + nome + ", Preço: " + preco;

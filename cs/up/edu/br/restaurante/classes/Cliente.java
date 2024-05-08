@@ -1,4 +1,4 @@
-package cs.up.edu.br.restaurante.menus.cliente;
+package cs.up.edu.br.restaurante.classes;
 
 // Classe Cliente representa um cliente do restaurante
 public class Cliente implements Comparable<Cliente> {

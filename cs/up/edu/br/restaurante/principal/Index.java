@@ -2,8 +2,8 @@ package cs.up.edu.br.restaurante.principal;
 
 import java.util.Scanner;
 
+import cs.up.edu.br.restaurante.classes.Funcionario;
 import cs.up.edu.br.restaurante.menus.cardapio.Cardapio;
-import cs.up.edu.br.restaurante.menus.funcionario.Funcionario;
 import cs.up.edu.br.restaurante.menus.pedido.Principal_pedido;
 
 /**
@@ -52,5 +52,6 @@ public class Index {
             }
         } while (opcao != 4); // Repete o loop enquanto a opção for 0
         scanner.close(); // Fecha o scanner para evitar vazamentos de recursos
+
     }
 }
