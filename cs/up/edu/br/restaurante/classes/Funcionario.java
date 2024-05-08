@@ -1,4 +1,4 @@
-package cs.up.edu.br.restaurante.menus.funcionario;
+package cs.up.edu.br.restaurante.classes;
 
 import java.util.Scanner;
 

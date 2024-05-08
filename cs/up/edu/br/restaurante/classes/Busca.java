@@ -17,30 +17,24 @@ public class Busca {
         if (exist == false) {
             for (Entrada entrada : entradas) {
                 if (entrada.getNome().equals(itemBuscado)) {
-                   System.out.println();
-                   System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-                   System.out.println("Item econtrado!");
-                   System.out.println(itemBuscado + " se encontra no menu de entradas");
-                   System.out.println(entrada);
-                   System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-                   System.out.println();    
+                   entradas.remove(entrada);
                    exist = true;
                    break;
                 }
            }
+           System.out.println();
+           System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+           System.out.println("Item econtrado!");
+           System.out.println(itemBuscado + " se encontra no menu de entradas");
+           System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+           System.out.println();    
         }   
 
         // Verifica se o item está presente no menu de pratos principais
         if (exist == false) {
             for (Prato_principal principal : principais) {
                 if (principal.getNome().equals(itemBuscado)) {
-                   System.out.println();
-                   System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-                   System.out.println("Item econtrado!");
-                   System.out.println(itemBuscado + " se encontra no menu de pratos principais");
-                   System.out.println(principal);
-                   System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-                   System.out.println();    
+                   principais.remove(principal);
                    exist = true;
                    break;
                 }
@@ -51,13 +45,7 @@ public class Busca {
         if (exist == false) {
             for (Sobremesa sobremesa : sobremesas) {
                 if (sobremesa.getNome().equals(itemBuscado)) {
-                   System.out.println();
-                   System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-                   System.out.println("Item econtrado!");
-                   System.out.println(itemBuscado + " se encontra no menu de de sobremesas");
-                   System.out.println(sobremesa);
-                   System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-                   System.out.println();    
+                   sobremesas.remove(sobremesa);
                    exist = true;
                    break;
                 }
