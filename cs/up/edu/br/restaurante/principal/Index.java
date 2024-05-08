@@ -26,6 +26,7 @@ public class Index {
             System.out.println("[1]Acessar cardapio");
             System.out.println("[2]Acessar pedidos");
             System.out.println("[3]Acessar Funcionarios");
+            System.out.println("[4]Sair");
             System.out.print("Opcao: ");
             opcao = scanner.nextInt();
 
@@ -39,12 +40,17 @@ public class Index {
                     // Acessa o menu de pedidos
                     Principal_pedido.PedidoMenu();
                     break;
-                default:
                 case 3:
-                    Funcionario.FuncionarioMenu();;
+                    Funcionario.FuncionarioMenu();
+                    break;
+                case 4:
+                System.out.println("Saindo...");
+                    break;
+                default:
+                    System.out.println("Escolha uma opcao valida!");
                     break;
             }
-        } while (opcao == 0); // Repete o loop enquanto a opção for 0
+        } while (opcao != 4); // Repete o loop enquanto a opção for 0
         scanner.close(); // Fecha o scanner para evitar vazamentos de recursos
     }
 }
