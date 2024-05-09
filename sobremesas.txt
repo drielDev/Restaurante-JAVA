@@ -1,3 +1,0 @@
-bolo, Preço: 2.99
-pudim, Preço: 5.0
-sorvete, Preço: 8.0
